@@ -47,8 +47,11 @@ header {
   justify-content: center;
 }
 
+#menu.tab {
+  margin: 0 3rem;
+}
+
 .tab {
-  margin: 2rem;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 4px;
@@ -63,6 +66,7 @@ header {
   font-size: 5rem;
   margin-top: 1rem;
   margin-bottom: -2.2rem;
+  text-align: center;
   color: var(--golden-accent-color);
 }
 
