@@ -13,10 +13,6 @@ const loadPage = () => {
     newTab.classList.add("tab");
 
     newTab.addEventListener("click", (e) => {
-      const details = document.getElementById("details");
-      while (details.firstChild) {
-        details.removeChild(details.lastChild);
-      }
       const tabId = e.target.id;
       if (tabId === "home") createHomePage();
       else if (tabId === "menu") createMenuPage();
@@ -26,17 +22,52 @@ const loadPage = () => {
     header.appendChild(newTab);
   }
 
-  footer.textContent = "Copyright";
+  footer.innerHTML =
+    'Copyright &copy; 2022 JayArya <a href="https://github.com/JayArya/restaurant-page" target="_blank"><img class="github-icon" src="./assets/GitHub-Mark-Light-32px.png" alt="GitHub-Mark"/></a>';
   details.id = "details";
 
   content.appendChild(header);
   content.appendChild(details);
   content.appendChild(footer);
+  createHomePage();
 };
 
 const createHomePage = () => {
   const details = document.getElementById("details");
+  while (details.firstChild) {
+    details.removeChild(details.lastChild);
+  }
   details.classList.remove("menu-page");
+  details.classList.remove("about-page");
+  details.classList.add("home-page");
+
+  const branding = document.createElement("div");
+  branding.classList.add("branding");
+  branding.textContent = "Global Pizzeria";
+
+  const heading = document.createElement("div");
+  heading.classList.add("home-heading");
+  heading.textContent = "THE PIZZA HEAVEN";
+
+  const headingHR = document.createElement("hr");
+  headingHR.classList.add("double-hr");
+
+  const tagLine = document.createElement("span");
+  tagLine.classList.add("home-tag-line");
+  tagLine.textContent = "The Epitome of Pizza!";
+
+  const viewMenuBtn = document.createElement("button");
+  viewMenuBtn.classList.add("view-menu-button");
+  viewMenuBtn.textContent = "View Menu";
+  viewMenuBtn.addEventListener("click", () => {
+    createMenuPage();
+  });
+
+  details.appendChild(branding);
+  details.appendChild(heading);
+  details.appendChild(headingHR);
+  details.appendChild(tagLine);
+  details.appendChild(viewMenuBtn);
 };
 const createMenuPage = () => {
   const menuData = [
@@ -64,11 +95,17 @@ const createMenuPage = () => {
   ];
 
   const details = document.getElementById("details");
+  while (details.firstChild) {
+    details.removeChild(details.lastChild);
+  }
+
+  details.classList.remove("home-page");
+  details.classList.remove("menu-page");
   details.classList.add("menu-page");
 
   const branding = document.createElement("div");
   branding.classList.add("branding");
-  branding.textContent = "Global Pizzzeria";
+  branding.textContent = "Global Pizzeria";
 
   const heading = document.createElement("div");
   heading.classList.add("menu-heading");
@@ -113,7 +150,34 @@ const createMenuPage = () => {
 };
 const createAboutPage = () => {
   const details = document.getElementById("details");
+  while (details.firstChild) {
+    details.removeChild(details.lastChild);
+  }
+
+  details.classList.remove("home-page");
   details.classList.remove("menu-page");
+  details.classList.add("about-page");
+
+  const branding = document.createElement("div");
+  branding.classList.add("branding");
+  branding.textContent = "Global Pizzeria";
+
+  const heading = document.createElement("div");
+  heading.classList.add("about-heading");
+  heading.textContent = "OUR STORY";
+
+  const headingHR = document.createElement("hr");
+  headingHR.classList.add("double-hr");
+
+  const aboutText = document.createElement("div");
+  aboutText.classList.add("about-content");
+  aboutText.textContent =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat, tellus sit amet ultrices porttitor, ex ex aliquet purus, pellentesque rhoncus felis ipsum nec purus. Donec id enim in risus pellentesque blandit. Proin sed nibh nec arcu mollis rhoncus in sit amet augue. Suspendisse magna nisl, eleifend non tempor et, luctus id quam. Nulla bibendum vulputate ante, non malesuada eros lobortis euismod";
+
+  details.appendChild(branding);
+  details.appendChild(heading);
+  details.appendChild(headingHR);
+  details.appendChild(aboutText);
 };
 
 export { loadPage };
