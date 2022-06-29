@@ -21,7 +21,7 @@ for (let i = 0; i < 3; i++) {
 }
 
 footer.innerHTML =
-  'Copyright &copy; 2022 JayArya <a href="https://github.com/JayArya/restaurant-page" target="_blank"><img class="github-icon" src="./assets/GitHub-Mark-Light-32px.png" alt="GitHub-Mark"/></a>';
+  'JayArya <a href="https://github.com/JayArya/restaurant-page" target="_blank"><img class="github-icon" src="./assets/GitHub-Mark-Light-32px.png" alt="GitHub-Mark"/></a>';
 
 details.id = "details";
 
