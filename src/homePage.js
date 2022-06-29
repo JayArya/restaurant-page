@@ -27,9 +27,7 @@ const createHomePage = () => {
   const viewMenuBtn = document.createElement("button");
   viewMenuBtn.classList.add("view-menu-button");
   viewMenuBtn.textContent = "View Menu";
-  viewMenuBtn.addEventListener("click", () => {
-    createMenuPage();
-  });
+  viewMenuBtn.addEventListener("click", () => createMenuPage());
 
   details.appendChild(branding);
   details.appendChild(heading);
